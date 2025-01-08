@@ -1,0 +1,51 @@
+{
+  "name": "vite-template-fe",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.51.21",
+    "@tanstack/react-router": "^1.46.4",
+    "@vitejs/plugin-react": "^4.3.1",
+    "axios": "^1.7.3",
+    "bootstrap": "4",
+    "keycloak-js": "^25.0.2",
+    "react": "^18.3.1",
+    "react-bootstrap": "^2.10.6",
+    "react-bootstrap-table-next": "^4.0.3",
+    "react-bootstrap-table2-filter": "^1.3.3",
+    "react-bootstrap-table2-paginator": "^2.1.2",
+    "react-dom": "^18.3.1",
+    "react-hook-form": "^7.54.0",
+    "react-scripts": "1.1.4",
+    "vite": "^5.3.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.8.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.1",
+    "@typescript-eslint/parser": "^8.0.1",
+    "eslint": "^8.55.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-formatjs": "^4.13.3",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jsx-a11y": "^6.9.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-promise": "^7.0.0",
+    "eslint-plugin-react": "^7.35.0",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "globals": "^15.9.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.2.2",
+    "typescript-eslint": "^8.0.1"
+  }
+}
