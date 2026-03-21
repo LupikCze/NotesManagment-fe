@@ -96,34 +96,35 @@ export const TagsTable: FC<TagsTableProps> = ({ tags, userIsAdmin }) => {
         <thead>
           <tr>
             <th style={{ color: "white", backgroundColor: "#00324e" }}>#</th>
-            {Object.keys(tags[0]).map((key) => {
-              if (key !== "id") {
-                return (
-                  <th
-                    key={key}
-                    style={{
-                      color: "white",
-                      backgroundColor: "#00324e",
-                      cursor: "pointer",
-                    }}
-                    className={"flex-column flex-nowrap"}
-                    onClick={() => requestSort(key)}
-                  >
-                    <div className={"d-flex"}>
-                      {key}
-                      {sortConfig.key === key ? (
-                        sortConfig.direction === "asc" ? (
-                          <span> 🔼</span>
-                        ) : (
-                          <span> 🔽</span>
-                        )
-                      ) : null}
-                    </div>
-                  </th>
-                );
-              }
-              return null;
-            })}
+            {tags[0] &&
+              Object.keys(tags[0]).map((key) => {
+                if (key !== "id") {
+                  return (
+                    <th
+                      key={key}
+                      style={{
+                        color: "white",
+                        backgroundColor: "#00324e",
+                        cursor: "pointer",
+                      }}
+                      className={"flex-column flex-nowrap"}
+                      onClick={() => requestSort(key)}
+                    >
+                      <div className={"d-flex"}>
+                        {key}
+                        {sortConfig.key === key ? (
+                          sortConfig.direction === "asc" ? (
+                            <span> 🔼</span>
+                          ) : (
+                            <span> 🔽</span>
+                          )
+                        ) : null}
+                      </div>
+                    </th>
+                  );
+                }
+                return null;
+              })}
           </tr>
         </thead>
         <tbody>

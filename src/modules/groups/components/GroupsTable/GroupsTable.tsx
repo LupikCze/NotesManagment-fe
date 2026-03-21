@@ -103,7 +103,7 @@ export const GroupsTable: FC<GroupsTableProps> = ({ groups, userIsAdmin }) => {
         <thead>
           <tr>
             <th style={{ color: "white", backgroundColor: "#00324e" }}>#</th>
-            {Object.keys(groups[0]).map((key) => {
+            {groups[0] && Object.keys(groups[0]).map((key) => {
               if (key !== "id") {
                 return (
                   <th

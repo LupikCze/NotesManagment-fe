@@ -100,34 +100,35 @@ export const NotesTable: FC<NotesTableProps> = ({ notes, userIsAdmin }) => {
         <thead>
           <tr>
             <th style={{ color: "white", backgroundColor: "#00324e" }}>#</th>
-            {Object.keys(notes[0]).map((key) => {
-              if (key !== "id") {
-                return (
-                  <th
-                    key={key}
-                    style={{
-                      color: "white",
-                      backgroundColor: "#00324e",
-                      cursor: "pointer",
-                    }}
-                    className={"flex-column flex-nowrap"}
-                    onClick={() => requestSort(key)}
-                  >
-                    <div className={"d-flex"}>
-                      {key}
-                      {sortConfig.key === key ? (
-                        sortConfig.direction === "asc" ? (
-                          <span> 🔼</span>
-                        ) : (
-                          <span> 🔽</span>
-                        )
-                      ) : null}
-                    </div>
-                  </th>
-                );
-              }
-              return null;
-            })}
+            {notes[0] &&
+              Object.keys(notes[0]).map((key) => {
+                if (key !== "id") {
+                  return (
+                    <th
+                      key={key}
+                      style={{
+                        color: "white",
+                        backgroundColor: "#00324e",
+                        cursor: "pointer",
+                      }}
+                      className={"flex-column flex-nowrap"}
+                      onClick={() => requestSort(key)}
+                    >
+                      <div className={"d-flex"}>
+                        {key}
+                        {sortConfig.key === key ? (
+                          sortConfig.direction === "asc" ? (
+                            <span> 🔼</span>
+                          ) : (
+                            <span> 🔽</span>
+                          )
+                        ) : null}
+                      </div>
+                    </th>
+                  );
+                }
+                return null;
+              })}
           </tr>
         </thead>
         <tbody>
