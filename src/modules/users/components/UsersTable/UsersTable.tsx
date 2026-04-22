@@ -47,10 +47,7 @@ export const UsersTable: FC<UsersTableProps> = ({ users, userIsAdmin }) => {
   });
 
   const filteredUsers = sortedUsers.filter((user) => {
-    return Object.values(user)
-      .join(" ")
-      .toLowerCase()
-      .includes(searchQuery.toLowerCase());
+    return user.username.toLowerCase().includes(searchQuery.toLowerCase());
   });
 
   const indexOfLastUser = currentPage * itemsPerPage;

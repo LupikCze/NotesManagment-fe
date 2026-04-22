@@ -49,10 +49,7 @@ export const GroupsTable: FC<GroupsTableProps> = ({ groups, userIsAdmin }) => {
   });
 
   const filteredGroups = sortedGroups.filter((group) => {
-    return Object.values(group)
-      .join(" ")
-      .toLowerCase()
-      .includes(searchQuery.toLowerCase());
+    return group.title.toLowerCase().includes(searchQuery.toLowerCase());
   });
 
   const indexOfLastGroup = currentPage * itemsPerPage;
@@ -103,34 +100,35 @@ export const GroupsTable: FC<GroupsTableProps> = ({ groups, userIsAdmin }) => {
         <thead>
           <tr>
             <th style={{ color: "white", backgroundColor: "#00324e" }}>#</th>
-            {groups[0] && Object.keys(groups[0]).map((key) => {
-              if (key !== "id") {
-                return (
-                  <th
-                    key={key}
-                    style={{
-                      color: "white",
-                      backgroundColor: "#00324e",
-                      cursor: "pointer",
-                    }}
-                    className={"flex-column flex-nowrap"}
-                    onClick={() => requestSort(key)}
-                  >
-                    <div className={"d-flex"}>
-                      {key}
-                      {sortConfig.key === key ? (
-                        sortConfig.direction === "asc" ? (
-                          <span> 🔼</span>
-                        ) : (
-                          <span> 🔽</span>
-                        )
-                      ) : null}
-                    </div>
-                  </th>
-                );
-              }
-              return null;
-            })}
+            {groups[0] &&
+              Object.keys(groups[0]).map((key) => {
+                if (key !== "id") {
+                  return (
+                    <th
+                      key={key}
+                      style={{
+                        color: "white",
+                        backgroundColor: "#00324e",
+                        cursor: "pointer",
+                      }}
+                      className={"flex-column flex-nowrap"}
+                      onClick={() => requestSort(key)}
+                    >
+                      <div className={"d-flex"}>
+                        {key}
+                        {sortConfig.key === key ? (
+                          sortConfig.direction === "asc" ? (
+                            <span> 🔼</span>
+                          ) : (
+                            <span> 🔽</span>
+                          )
+                        ) : null}
+                      </div>
+                    </th>
+                  );
+                }
+                return null;
+              })}
           </tr>
         </thead>
         <tbody>

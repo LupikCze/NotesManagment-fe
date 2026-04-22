@@ -45,10 +45,7 @@ export const TagsTable: FC<TagsTableProps> = ({ tags, userIsAdmin }) => {
   });
 
   const filteredTags = sortedTags.filter((tag) => {
-    return Object.values(tag)
-      .join(" ")
-      .toLowerCase()
-      .includes(searchQuery.toLowerCase());
+    return tag.title.toLowerCase().includes(searchQuery.toLowerCase());
   });
 
   const indexOfLastTag = currentPage * itemsPerPage;

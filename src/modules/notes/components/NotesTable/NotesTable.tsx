@@ -49,10 +49,7 @@ export const NotesTable: FC<NotesTableProps> = ({ notes, userIsAdmin }) => {
   });
 
   const filteredNotes = sortedNotes.filter((note) => {
-    return Object.values(note)
-      .join(" ")
-      .toLowerCase()
-      .includes(searchQuery.toLowerCase());
+    return note.title.toLowerCase().includes(searchQuery.toLowerCase());
   });
 
   const indexOfLastNote = currentPage * itemsPerPage;
